@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agta Tabangnon | Indigenous Community of Bicol</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS VARIABLES (Deep Forest Theme) --- */
+        :root {
+            --primary-green: #1b4d3e;  /* Deep Forest */
+            --light-green: #eef7f3;    /* Light Sage */
+            --accent-gold: #c5a065;    /* Earthy Gold */
+            --bg-cream: #f4f1ea;       /* Paper/Cream */
+            --text-dark: #2c3e50;      /* Dark Grey */
+            --white: #ffffff;
+        }
+
+        /* --- GENERAL SETTINGS --- */
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.8;
+            font-size: 1.05rem; /* Slightly larger for readability */
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+        
+        h1 { margin: 0; font-size: 3.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        
+        h2 {
+            color: var(--primary-green);
+            font-size: 2.2rem;
+            border-bottom: 3px solid var(--accent-gold);
+            display: inline-block;
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+
+        h3 {
+            color: #2c3e50;
+            margin-top: 40px;
+            font-size: 1.5rem;
+            border-left: 4px solid var(--primary-green);
+            padding-left: 15px;
+        }
+
+        strong { color: var(--primary-green); }
+
+        /* --- HEADER --- */
+        header {
+            /* We use the image you provided. The 'fixed' creates a cool parallax effect */
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("Mt Isarog.jpg"); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; 
+            height: 100vh; /* Takes up full screen height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        header p { font-size: 1.5rem; font-weight: 300; margin-top: 10px; color: #f0f0f0; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background: var(--primary-green);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        nav a {
+            color: var(--white);
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover { color: var(--accent-gold); }
+
+        /* --- SECTIONS (Card Style) --- */
+        section {
+            max-width: 950px; /* Wider to accommodate full text */
+            margin: 40px auto;
+            background: var(--white);
+            padding: 60px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        /* --- IMAGES --- */
+        img {
+            width: 100%;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+        
+        .map-image {
+            width: 70%;
+            display: block;
+            margin: 30px auto;
+            border: 5px solid white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        /* --- TABLES --- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+            background: white;
+        }
+
+        table thead tr {
+            background-color: var(--primary-green);
+            color: var(--white);
+            text-align: left;
+        }
+
+        table th, table td {
+            padding: 15px 20px;
+            border-bottom: 1px solid #dddddd;
+            vertical-align: top;
+        }
+
+        table tbody tr:nth-of-type(even) { background-color: #f8f9fa; }
+        table tbody tr:hover { background-color: var(--light-green); }
+
+        /* --- STUDENT REFLECTION BOX --- */
+        .reflection {
+            background: #fcf8e3;
+            border-left: 6px solid var(--accent-gold);
+            padding: 25px;
+            margin-top: 40px;
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .reflection strong {
+            display: block;
+            color: #8a6d3b;
+            font-family: 'Playfair Display', serif;
+            font-style: normal;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        /* --- TEXT FORMATTING --- */
+        ul { margin-bottom: 20px; }
+        li { margin-bottom: 10px; }
+        
+        .block-style2, .justify-text {
+            text-align: justify;
+        }
+        .combined-indent { text-align: justify; text-indent: 30px; }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--primary-green);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            section { margin: 20px; padding: 30px 20px; }
+            nav a { display: block; margin: 10px 0; }
+            .map-image { width: 100%; }
+            
+            /* Responsive Tables */
+            table, thead, tbody, th, td, tr { display: block; }
+            thead tr { position: absolute; top: -9999px; left: -9999px; }
+            tr { margin: 0 0 1rem 0; border: 1px solid #ccc; border-radius: 8px; overflow: hidden; }
+            td { border: none; border-bottom: 1px solid #eee; position: relative; padding-left: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Agta Tabangnon</h1>
+    <p>Indigenous Community of the Bicol Region</p>
+</header>
+
+<nav>
+    <a href="#history">History</a>
+    <a href="#social">Social</a>
+    <a href="#political">Political</a>
+    <a href="#economic">Economic</a>
+    <a href="#culture">Culture</a>
+    <a href="#religion">Religion</a>
+    <a href="#issues">Issues</a>
+</nav>
+
+<section id="history">
+    <p style="text-align: center; font-family: 'Playfair Display'; font-size: 1.8rem; color: #555; margin-bottom: 30px;"><strong>Agta Tabangnon People</strong></p>
+    <img src="Agta tabangnon people.jpg" alt="Agta Tabangnon People">
+    
+    <h2>📜 History</h2>
+    
+    <h3>Origin of the Term</h3> 
+    <p class="combined-indent">The term Agta is widely used in Luzon to refer to the Negrito indigenous group. The term does not refer to a single group, but rather a cluster of culturally and linguistically distinct communities that share physical ancestry and traditions. While the Tabangnon is used to distinguish a specific Agta subgroup in the Bicol Region. It refers to a group of mixed ancestry, specifically, they are the result of intermarriage between the Agta and lowland Bicolanos.</p>
+
+    <h3>Origin</h3>
+    <p class="block-style2">The origin of Agta Tabangnon has two distinct genetic and cultural lines that merged over thousands of years:</p>
+    <ul class="justify-text">
+        <li><strong>Pleistocene Era:</strong> The Australo-Melanesian (Agta/Aeta) arrived in the Philippines and established a nomadic, hunter-gatherer lifestyle in the lush volcanic forest of the Bicol Peninsula.</li>
+        <li><strong>Austronesian Expansion:</strong> The arrival of these Austronesian people (the ancestors of modern Bicolanos), the tabangnon identity solidified later. As these lowlanders moved inland during Spanish colonial rule, the interactions with the Agta intensified, leading to the mixed biological lineage that defines the Tabangnon today.</li>
+    </ul>
+
+    <h3>Migration</h3>
+    <p class="block-style2">The migration history of Agta Tabangnon is shifting up and down to the mountain dictated by the external pressures. It was characterized by a “vertical” movement.</p>
+    <ul class="justify-text">
+        <li><strong>Pre-Colonial Era:</strong> Originally, they moved freely through the vast rainforest of the Bicol Peninsula, where they were semi-nomadic hunter-gatherers. They utilized a broad territory, moving between river valleys and mountain slopes.</li>
+        <li><strong>Spanish Era:</strong> In the 16th century the arrival of the Spanish colonization, many indigenous groups and resistant lowlanders fled into the dense forests of Mt. Isarog and Mt. Iriga. This is to escape taxation (tributo), forced labor (polo y servicio), and religious conversion.</li>
+        <li><strong>Modern Era:</strong> In the 20th and 21st centuries, massive deforestation and the declaration of their ancestral domains as “Protected Areas” prohibited their traditional hunting and gathering practices. Therefore, many of them were forced to migrate to the foothills to survive as wage laborers, which they became squatters on their own ancestral land.</li>
+    </ul>
+
+    <h3>Colonization and Resistance</h3>
+    <ul class="justify-text">
+        <li><strong>Spanish Rule:</strong> During the Spanish rule, the colonial government enforced the Reduccion policy to gather the lowland people for easy taxation and religious conversion. Many Bicolanos refused to submit. These rebellions, also known as Remontados (people who returned to the mountains), fled to the highlands of Mt. Isarog and Mt. Iriga, where they integrated and intermarried with the indigenous Agta communities. These interactions lead to a distinct "mixed" society that maintained its freedom by utilizing the rugged terrain as a fortress, effectively rejecting the Spanish pueblo system but consequently isolating itself from the developing infrastructure of the lowlands.</li>
+        <li><strong>American Period:</strong> In the American period, considering the Agta’s nomadic lifestyle as “uncivilized,” the colonial government established a reservation through the Bureau of Non-Christian Tribes, forcing them into sedentary agriculture and incorporating them into the colonial state. At the same time, the American economic boom fueled a massive demand for abaca (also known as Manila hemp), leading to the expansion of commercial plantations deep into the mountains. As a result, the Tabangnon experienced significant land loss, as their ancestral forests were systematically cleared and converted into agricultural land owned by outsiders, further marginalizing them economically.</li>
+    </ul>
+
+    <h3>Demography</h3>
+    <p class="combined-indent">The Agta Tabangnon have a distinctive demography, characterized by a unique biological mixture that sets them apart from other ethnic groups in the Philippines. Unlike other isolated Negrito people, the Tabangnon are a mixed community, having adapted over the centuries to the original hunter-gatherers and the Bicolanos in the lowlands. Their mixture resulted in a distinct physical type, characterized by wavy hair and light-colored skin, as well as a shift in their way of life from a nomadic group of clans to a temporary settlement on the periphery of landed estates.</p>
+    <p class="combined-indent">In terms of culture, this integration has led to a significant demographic shift, particularly in language and categorization. Though they traditionally spoke a distinct dialect of Inagta, several generations of trading made this population exceptionally bilingual, and younger ones show a marked preference for the major Bicolano language dialects. This integration produces a kind of "statistical invisibility," as the Tabangnon are often mistaken for poor uplanders, despite an approximate population of 25,000 to 30,000 Agta in the entire region. Currently, their demographic is influenced by economic necessity, a phenomenon known as a "youth drain," as they migrate to cities in search of employment.</p>
+
+    <h3>Geography</h3>
+
+    <p class="combined-indent">The geographical origins of the Agta Tabangnon are tied to their ancestral domain within the so-called 'Volcanic Arc' of the Bicol Peninsula, where they live on the slopes of the main stratovolcanoes of the region. They are found predominantly in the provinces of Camarines Sur and Albay, surrounding the Mt. Isarog Natural Park (Goa, Tigaon, and Ocampo) and Mt. Iriga (also known as Asog) within the Rinconada area. Traditionally, they were found within the deep rainforests of these mountain peaks; contemporary settlement patterns have moved them into the 'mid-elevation' ranges, which are located between the wilderness area and the lowland plains of agricultural production.</p>
+    <p class="combined-indent">The topographical features of this area are also a factor that has kept them isolated throughout history, as most of their settlement sites are enumerated as Geographically Isolated and Disadvantaged Areas (GIDA). It has a topographic characteristic of deep ravines and a lack of access roads; indeed, its isolation has preserved its unique culture but limited its access to basic government services, such as health and education. Additionally, their current geographical location places them within a delicate “buffer zone” between the stringent laws banning hunting within the protected forests above and the expanding abaca and coconut plantations of private landowners in the lowlands below.</p>
+
+    <div class="reflection">
+        <strong>Reflection:</strong>
+        <p>The history of Tabangnon is a bitter reminder of what it means to be free. Through their decision to move to the mountain to escape Spanish rule, they have maintained their freedom, yet at a cost: they have abandoned development. This highlights how the resistance of marginalized communities comes with a heavy price that is seldom acknowledged or understood.</p>
+    </div>
+</section>
+
+<section id="social">
+    <h2>👥 Social Aspect</h2>
+    
+    <h3>Special Relation to and Use of Traditional Land</h3>
+    <ul class="justify-text">
+       <li><strong>Land as Life and Pharmacy:</strong> They consider the forest their marketplace and pharmacy. Their indigenous knowledge in the area of ethnobotany is very rich, as they are able to identify over 400 plant species that are used to treat various conditions, ranging from fever to snakebite.</li>
+       <li><strong>Spiritual Connection:</strong> The land is peopled by spirits-anitos or tawo sa lipod. Thus, their exploitation of the land is tempered by respect, not use. Before they clear a patch for farming or cut down a big tree, they perform rituals, santiguar, to ask permission so that the utilization of resources will not enrage the unseen guardians.</li>
+       <li><strong>The "Forest Edge" Adaptation:</strong> Unlike lowland farmers who have owned identifiable lands, the Tabangnon have traditionally practiced swidden farming (Kaingin). They cut down a portion of the forest, planted in it for a short period of time, and allowed it to fallow. Due to limited access to the protected parks (Mt. Isarog), they have resorted to permanent settlement, thereby deviating from this customary pattern.</li>
+    </ul>
+  
+    <h3>Social Identity</h3>
+    <ul class="justify-text">
+       <li><strong>The ‘Mixed’ Stigma:</strong> They find themselves living ‘in-between’ two cultures. The Lowland Bicolanos may derogatorily call them ‘taga-bukid’ (meaning people of the mountains) or use ‘Agta’ as a derogatory name suggesting a lack of cleanliness and education. The pure Negritos may consider them too adapted.</li>
+       <li><strong>Invisibility and Assimilation:</strong> Most of the Tabangnon indigenes are cautious of discrimination when they go to urbanized parts of town and try to hide their ethnic identity. Some of them even comb straight their hair and are afraid to speak in their native tongue, Inagta. This has resulted in a loss of identity among those who are more proud of “Bicolano” and avoid being known as “Agta.”</li>
+    </ul>
+  
+    <h3>Environmental Preservation</h3>
+    <ul class="justify-text">
+       <li><strong>Conflict with Conservation Laws:</strong> Ironical as it may sound, new-age conservation laws have made these practices a crime. Mt. Isarog and Mt. Malinao's declaration as "Protected Areas" made it illegal to hunt and forage within these areas. "We are not the destroyers of the forest but have become victims of it," claims the Tabangnon. "We have kaingins to blame for the destruction of the forest when in fact the actual logging that takes place escapes penalties."</li>
+    </ul>
+  
+    <h3>Social Structure</h3>
+    <ul class="justify-text">
+       <li><strong>The Nuclear Family and the Clan:</strong> Nuclear family is the key fundamental unit; however, the society as a whole is centered on the clan. The family is typically grouped in a cluster or sitio, where everyone is related by either blood or marriage.</li>
+       <li><strong>Leadership (The Dakula):</strong> Traditionally, leadership was vested in a Dakula, known as an Elder and Chieftain, based on wisdom, knowledge of traditional law, and the capacity to resolve conflicts.</li>
+       <li><strong>Contemporary Hybrid Leadership:</strong> Today, such an age-old organization coexists with this modern political setup. There is coordination between the Tribal Council (a government-recognized entity) and the Barangay officials. The “Tribal Chieftain,” currently serving as the community-government linkers for concerns such as 4Ps (Conditional Cash Transfer) and land disputes, is part of such a setup.</li>
+    </ul>
+  
+    <h3>Social Issues in the Modern Era</h3>
+    <ul class="justify-text">
+       <li><strong>Discrimination in Education:</strong> This is the most urgent social concern. Many Tabangnon children do not get to finish their education because they are bullied by lowland children because of their looks, their poverty, or their accents, resulting in an unending cycle of illiteracy that locks their children into poverty.</li>
+       <li><strong>Health Care Facilities:</strong> Since they live in GIDA (Geographically Isolated and Disadvantaged Areas), they cannot access health clinics. They rely on traditional healers not only due to cultural beliefs but also because hospitals are far and costly.</li>
+       <li><strong>Poverty and Labor Exploitation:</strong> The lack of titles to their land makes them susceptible to exploitation. Most are tenant farmers or abaca strippers who receive low wages, finding themselves in what is referred to as the `patron-client` debt bondage to lowland landlords.</li>
+       <li><strong>The Struggle for CADT:</strong> The prolonged delay in the awarding of their Certificate of Ancestral Domain Title (CADT) gives rise to social anxiety. They cannot own the land; thus, they are always afraid of being driven out, either by resort developers or due to an infrastructure project initiated by the government.</li>
+    </ul>
+
+    <div class="reflection">
+        <strong>Reflection:</strong>
+        <p>The closeness within their clans creates an extreme contrast to the discrimination they face outside. The bully, the social exclusion-enduring way teaches us that real dignity may not lie in wealth or status but in the strength of community and how we care for our own.</p>
+    </div>
+</section>
+
+<section id="political">
+    <h2>🏛️ Political Aspect</h2>
+    
+    <h3>Types of Political System</h3>
+    <ul class="justify-text">
+       <li><strong>Egalitarian:</strong> In their traditional forest life, there was no strict hierarchy or social classes. Every member of the community had equal status, and resources were shared communally.</li>
+       <li><strong>Gerontocracy (Rule of Elders):</strong> Authority is not inherited through the blood, such as in a monarchy; it is earned through age, experience, and wisdom. Older members within the community demand the highest respect and exercise the most weight in decisions.</li>
+    </ul>
+  
+    <h3>Political Structure</h3>
+    <ul class="justify-text">
+       <li><strong>The Dakula (The Chieftain/Elder):</strong> The leader of the settlement may be referred to as "Dakula" (which in Bicol terminology means "Big One") or "Apong." The Dakula, in fact, is not a dictator but rather a facilitator. This kind of leader lacks the ability to direct others.</li>
+       <li><strong>The Council of Elders (Kagurangnan):</strong> Below the Dakula is a sort of informal council of leaders of the different clans (haban). Important decisions like the transfer of the settlement, going to war (in the past), or resolving a dispute about the land in question are made by the entire group by consensus.</li>
+       <li><strong>Family Unit:</strong> The first level of politics is the family unit or the nuclear family. Here, the father symbolizes the father figure in the clan meetings.</li>
+    </ul>
+  
+    <h3>Administration</h3>
+    <ul class="justify-text">
+       <li><strong>Traditional Administration:</strong> There is no police force or prison. Social control is exercised through peer pressure, often facilitated by a network of whispers. The fear of shame, supog, is the only administrative mechanism for good conduct.</li>
+       <li><strong>Modern Administration:</strong> At present, the traditional system also operates in cooperation with the Philippine government. The Tribal Council is also registered with the National Commission on Indigenous Peoples (NCIP). The Tribal Chieftain also serves as the administrator of government programs such as 4Ps and relief distribution during typhoons.</li>
+    </ul>
+  
+    <h3>Rules and Regulations</h3>
+    <ul class="justify-text">
+       <li><strong>Law of Sharing:</strong> This is a universal law where the sharing of food is required, especially meat from the hunted animals. Failure to share is considered a serious violation of the law.</li>
+       <li><strong>Territorial Policies:</strong> One cannot just enter and cultivate another clan's territory.</li>
+       <ul class="justify-text">
+          <li><strong>"Pa-use" System:</strong> If the family wishes to cultivate a piece of land, the request must go to the elders. When the family ceases to cultivate the land, it becomes the property of the community, and it is not theirs.</li>
+       </ul>
+       <li><strong>Marriage Rules:</strong></li>
+       <ul class="justify-text">
+          <li><strong>Incest Taboo:</strong> Marriage with consanguine relatives is forbidden.</li>
+          <li><strong>Bride Price (Dowry):</strong> The groom is supposed to pay the dowry or service (paninilbihan) to the family of the bride as some kind of “policy” to indicate his capability to raise children.</li>
+       </ul>
+    </ul>
+  
+    <h3>Customary Laws (Adat)</h3>
+    <ul class="justify-text">
+       <li><strong>Resolution of Conflicts:</strong> If there is a criminal act, such as theft or insult, the objective is not to penalize the guilty party but to achieve restitution. The Elders will arbitrate a settlement (areglo). Often, the guilty party will pay a fine expressed in terms of food, wine, or livestock, which will be shared to "wash away" the conflict.</li>
+       <li><strong>Environmental Laws:</strong> There are serious taboos against cutting down "sacred" Balete trees or peeing in some rivers because the latter are believed to contain spirits' dwellings (tawo sa lipod). If the law is not obeyed, it is believed that the entire tribe will fall ill, and the "offender" must undergo a purification ritual.</li>
+    </ul>
+  
+    <h3>Evident Political System in the Modern Era</h3>
+    <ul class="justify-text">
+       <li><strong>Rise of IPMR:</strong> In accordance with the IPRA Law of 1997, also known as the Indigenous Peoples' Rights Act, the Agta Tabangnon people now must be represented. They are guaranteed a representative within the government. Their representative is called IPMR and is part of the Barangay or Municipal Council.</li>
+       <li><strong>Conflict of Systems:</strong> There is conflict in the Dakula or IP traditional ruler against the IPMR or the IP barangay captain. Sometimes the young, educated Agta is elected as the IPMR due to their literacy, which creates conflict in the traditional role of the older, illiterate Dakula or IP Elders.</li>
+       <li><strong>Erosion of Customary Laws:</strong> Serious offenses (such as murder) are mostly dealt with by the Philippine National Police (PNP), rather than by the tribal leaders, thereby eroding customary laws.</li>
+    </ul>
+
+    <div class="reflection">
+        <strong>Reflection:</strong>
+        <p>The transition from traditional Elders to elected officials reveals the tension between ancient wisdom and modern bureaucracy. Forced upon us is the questioning of whether "legal recognition" truly empowers indigenous peoples, or if it is actually self-destructive of that moral authority that for generations held their society together.</p>
+    </div>
+</section>
+
+<section id="economic">
+    <h2>💼 Economic Aspect</h2>
+
+    <h3>Core Livelihoods: The "Forest-to-Market" Chain</h3>
+    <p class="block-style2">In contrast to the common lowland economy of full-time work, the Tabangnon's economy follows a seasonal pattern influenced by the availability of natural resources. They gather their livelihood through both traditional foraging methods and contemporary wage work.</p>
+    <ul class="justify-text">
+       <li><strong>Abaca Stripping (Pag-hagot):</strong> It gives the backbone to their economy. The Bicol region is called the "Abaca Capital of the Philippines," and the Tabangnon are the main manual workers who extract the hemp fibers in the mountainous areas where no machines can penetrate.</li>
+       <li><strong>Copra Production:</strong> Most of them are tenant farmers in coconut plantations owned and operated by lowlanders. The products are harvested and smoked, and then sold in the form of copra.</li>
+       <li><strong>Charcoal Making (Pag-uuling):</strong> It usually serves as a “fallback” occupation during lean seasons. Controversy surrounds this activity, as charcoal making in protected areas is technically prohibited by law, yet its practice continues to be necessary for some as a means to acquire a bag of rice.</li>
+       <li><strong>Swidden Farming (Kaingin):</strong> They grow small areas of root crops (cassava, camote, and gabi), which are mainly for home consumption and not for selling.</li>
+    </ul>
+  
+    <h3>The Economic Value of Ancestral Land vs. Ancestral Domain</h3>
+    <table>
+        <thead>
+            <tr>
+                <th width="30%">Term</th>
+                <th width="20%">Metaphor</th>
+                <th width="50%">Description & Significance</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Ancestral Land</strong><br><em>(Lupa)</em></td>
+                <td>"The Supermarket"</td>
+                <td>To a Tabangnon, the actual land is their own personal source of life. The forest yields its supply of yams, honey, rattan for weaving, and native medicines. When they are driven away from the land, they will have no source of food because they do not have the funds to buy their sources of living at the market.</td>
+            </tr>
+            <tr>
+                <td><strong>Ancestral Domain</strong><br><em>(Lupaing Ninuno)</em></td>
+                <td>The "Capital Asset"</td>
+                <td>Their only leverage in the new economy is the legal recognition of their domain (through CADT). They can then claim Royalties in exchange for using their land, for instance, in geothermal plants in Tiwi, or in eco-tourism in Isarog, or mining in other sites, once they possess a CADT. Otherwise, they would be regarded merely as squatters without any bargaining power in the marketplace.</td>
+            </tr>
+        </tbody>
+    </table>
+  
+    <h3>Trade in Goods and Services</h3>
+    <p class="block-style2">Their trade relationship is marked with asymmetrical exchange; they sell raw materials at low prices to middlemen and buy finished goods for consumer products at retail prices.</p>
+    <table>
+        <thead>
+            <tr>
+                <th width="30%">Category</th>
+                <th width="70%">Items & Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Goods Sold</strong><br><em>(Outflow)</em></td>
+                <td>
+                    <ul class="justify-text">
+                        <li><strong>Raw Fibers:</strong> The raw fiber export is Abaca or Manila Hemp, extracted by hand in the mountains and sold to merchants in town.</li>
+                        <li><strong>Forest Products:</strong> These people forage and sell forest products such as honey, rattan used for furniture, orchids, and tiger grass used for soft brooms.</li> 
+                        <li><strong>Fuel:</strong> Uling or charcoal is one of the prime products that comes in bulk to sell to lowland residents or to eating establishments.</li>
+                        <li><strong>Target Market:</strong> Middlemen (Compradors) in towns of Goa, Tigaon, and Iriga.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Services Offered</strong><br><em>(Labor)</em></td>
+                <td>
+                    <ul class="justify-text">
+                        <li><strong>Manual Labor:</strong> They render necessary physical labor to lowland landowning families, such as clearing lands (hawan), as well as hauling heavy sacks of copra or abaca from mountain trails to lower grounds.</li>
+                        <li><strong>Guides & Porters:</strong> Their knowledge of the area makes them sought-after guides and porters for mountaineers, researchers, as well as tourists exploring Mt. Isarog.</li> 
+                        <li><strong>Traditional Healing:</strong> They often become healers (herbolaryo/herbolario or hilot) where they use herbs and massage on both their people and on lowlanders.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Goods Bought</strong><br><em>(Inflow)</em></td>
+                <td>
+                    <ul class="justify-text">
+                        <li><strong>Food Staples:</strong> As they do not hunt anymore for their subsistence needs, they buy with their cash earnings rice (the highest expense), sardines, noodles, coffee, and sugar.</li>
+                        <li><strong>Technology and Utilities:</strong> An increasing source of their earnings is for cellphone load (communication with employers) and gasoline for those with motorbikes (habal-habal).</li> 
+                        <li><strong>Source:</strong> Sari-Sari Stores and Public Wet Markets.</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  
+    <h3>Local and International Economic Relations</h3>
+    <ul class="justify-text">
+       <li><strong>The "Suki" System (Local):</strong></li>
+       <ul class="justify-text">
+          <li>Their economy is based on Patron-Client ties. The Tabangnon always has a suki (patron/middleman) in town.</li>
+          <li><strong>The Trap:</strong> The customer provides “cash advances” in terms of medicine or rice. In return, the Tabangnon must sell their abaca or charcoal only to that customer, sometimes even at a discount, in order to repay the loan.</li>
+       </ul>
+       <li><strong>The Global Connection (International):</strong></li>
+       <ul class="justify-text">
+          <li><strong>Abaca Export:</strong> The abaca fibers removed by the Tabangnon hands are exported worldwide for the production of Japanese yen notes, tea bags, and heavy cordages.</li>
+          <li><strong>Disconnect:</strong> Here, the resource is the source of a highly valuable worldwide commodity. The wealth is extracted by the exporters and processors, and the Tabangnon people receive just a fraction of it (a subsistence wage).</li>
+       </ul>
+    </ul>
+  
+    <h3>Transfer of technology and ideas</h3>
+    <ul class="justify-text">
+       <li><strong>Machetes to Chainsaws:</strong> Traditionally, they used bolos (machetes). Modern-day usage has led some to use rented chainsaws to speed up land clearing, which in turn promotes faster deforestation.</li>
+       <li><strong>The "Digital" Labor Market:</strong> The cheapest mobile phones have transformed the way they work. They do not have to walk for hours to town in order to look for a job. Landowners can now send a text message when they require labor.</li>
+       <li><strong>Loss of Indigenous Knowledge:</strong> As the younger generation adopts modern concepts of agriculture (such as the use of chemical herbicides promoted by traders), they are also thereby losing indigenous knowledge regarding sustainable forest management practices.</li>
+     </ul>
+
+    <div class="reflection">
+        <strong>Reflection:</strong>
+        <p>They are the unseen drivers of a large-scale industry. The truth that the harvesters of the valuable abaca live in extreme poverty is a sobering reminder that hard work does not necessarily result in economic success if the economic structure is set up to ensure that the worker is always in debt.</p>
+    </div>
+</section>
+
+<section id="culture">
+    <h2>🎨 Culture</h2>
+    
+    <h3>Culture in Relation to Life, History, Power, and Environment</h3>
+    <p class="combined-indent">The culture of the Agta Tabangnon can be described as a culture of negotiation, a survival tactic developed in and from the forest they live in and the colonizers they were able to resist. The Agta Tabangnon live according to the Animistic tradition, which sees the world as full of spirits (tawo sa lipod). Nature dictates their ways, and a tree is never merely a tree to them, a river is never merely water. As such, their culture itself functions almost as an indigenous environmental management system, where the rituals they follow help keep resources from being exploited. Moreover, their culture, with its long history of resisting Spanish colonization, has developed a rich and distinctive syncretic culture whereby ancient forest spirits coexist with Catholic saints, a kind of life-long tribute to their “bridge” culture between the untamed forests and the settled lowlands.</p>
+  
+    <h3>Customs and Traditions</h3>
+    <ul class="justify-text">
+      <li><strong>Birth:</strong> When a child is born, it is a spiritual event that is undertaken with utmost care. The placenta is considered sacred (inulnan), and it is buried beneath the house or hung in a tall tree to ensure that the child remains healthy and maintains a spiritual connection with the land throughout their life.</li>
+      <li><strong>Healing Rites:</strong> When illness breaks out, the people turn to the Balyan or Albularyo, who is the traditional healer. Employing the use of herbal oils combined with prayer orasyon and rituals, such as the Santiguar, the healers determine whether the affliction is physical or caused by an irked spirit.</li>
+      <li><strong>Death:</strong> Burial sites have gradually changed from cave burial to burial grounds as a result of modern law regulations. Nonetheless, "the tradition of 'lamay' (wake) is an essential part of a community where all members of a clan are required to be in attendance to comfort the family that has lost a loved one."</li>
+    </ul>
+  
+    <h3>Arts, Crafts, and Clothing</h3>
+    <p class="block-style2"><strong>Visual Arts:</strong> "The artistic depictions of the Tabangnon are purely utilitarian in nature. Indeed, they are expert weavers. Tritons of the Nito vines and Rattans or Uway, they weave complex baskets or "karagumoy" and "backpacks" that are perfect for carrying copious amounts of abaca on steep ascents. Similarly, their artistic skills are demonstrated in the manufacture of their "Bolos" or machetes and "bitags" or complex hunting snares."</p>
+    <p class="block-style2"><strong>Clothing Evolution:</strong></p>
+    <ul class="justify-text">
+       <li>The traditional attire for males consisted of the Bahag made out of tree bark or fibers. Meanwhile, the Tapis was worn by women.</li>
+       <li><strong>Contemporary:</strong> Today, traditional attire is a rarity and is now only found during cultural events. In an effort to prevent themselves from being discriminated against, they wear the "lowland uniform," consisting of t-shirts, shorts, and rubber sandals. Clothing is, therefore, a form of social camouflage.</li>
+    </ul>
+  
+    <h3>Literature</h3>
+    <p class="combined-indent">Being unwritten, they have an Oral Tradition as rich as their library and school. These are Myths of Origin involving the supreme deity Gugurang and the Aswang, sometimes set to fit the geography of Mt. Isarog. Riddles (bugtong) are used as a school material to teach youth the characteristics of animals and plants, employing a Bodong technique to educate them. Meanwhile, legends of mountain guardians serve as a warning system to map safety and danger zones in their forests.</p>
+  
+    <h3>Wedding Ceremony (Kasal)</h3>
+    <ul class="justify-text">
+      <li><strong>Courtship (Pamanhikan):</strong> The groom's family has a visit to the bride's family, presenting gifts of food, wine, and betel nut (nganga) as a token of respect.</li>
+      <li><strong>The Dowry:</strong> An essential negotiation is regarding the price of the bride. This can be in cash, in kind (for example, a carabao), or in paninilbihan (service in kind), which involves rendering service by working on the bride's family farm to gauge the prospective son-in-law's reliability.</li>
+      <li><strong>Ritual:</strong> The significance of this ritual lies in the symbolism of sharing. Here, the couple performs the subuan, where each tries to feed the other rice balls from a single plate, implying that in their future, they would share everything, even difficulties.</li>
+    </ul>
+  
+    <h3>Music and Dance</h3>
+    <p class="block-style2"><strong>Music:</strong> Instruments are made from the immediate environment. They use the Subing/Kubing (bamboo jaw harp), bamboo flutes for courtship, and brass Agongs (through trade) for festive gatherings.</p>
+    <p class="block-style2"><strong>Dance:</strong> Their dances are not only a source of entertainment but also of education.</p>
+    <ul class="justify-text">
+       <li><strong>Animal Pantomime:</strong> Dancers enact the movements of the monkeys-chonggo, bees, or birds of prey. The performance teaches the younger generation about the behavioral patterns of the animals they hunt.</li>
+       <li><strong>The Courtship Dance:</strong> This dance emulates a rooster and hen chase, featuring circular movements and agility, which represent the persistence one needs in love.</li>
+    </ul>
+
+    <div class="reflection">
+        <strong>Reflection:</strong>
+        <p>Their culture is not just a legend; it’s a guide for surviving. Every dance that imitates an animal, every ritual that celebrates a tree, is a way of surviving in the wild. The destruction of this culture is a warning that when we lose indigenous knowledge, we lose a way of thinking about the world that is absolutely crucial to us.</p>
+    </div>
+</section>
+
+<section id="religion">
+    <h2>🙏 Religion (Spirituality)</h2>
+    
+    <h3>Ideological (Belief System)</h3>
+    <p class="combined-indent">"The essential ideology of Agta Tabangnon is Syncretic Animism." 
+       "Their religion is not 'either/or' but 'and/and.' On one level, they are Animists. They believe that nature (rocks, trees, rivers) is inhabited by spirits called Tawo sa Lipod (People of the unseen) or Engkanto. On another level, because of their cohabitation with lowland communities for so many centuries, they have syncretized Folk Catholicism."</p> 
+     <p class="combined-indent">"For a Tabangnon, it is not uncommon to have attended mass and prayed to the Santo Niño for a bountiful harvest and at the same time to have offered meals to the spirits in the balete tree in the nearby forests."</p>
+  
+    <h3>Gods and Goddesses</h3>
+    <ul class="justify-text">
+      <li><strong>Gugurang:</strong> The highest god and god of good things, more traditionally associated with the fire on Mt. Mayonbut worshipped by the Agta as a provider of bounty.</li>
+      <li><strong>Aswang:</strong> Gugurang’s enemy; a shape-shifting deity of evil with connections to illness, death, and darkness.</li>
+      <li><strong>Anitos (Nature Spirits):</strong> These are sub-deities or spirits of the ancestors who protect particular areas, a spirit of a wild boar guarding the hunt, and the river guardian.</li>
+      <li><strong>Catholic Saints:</strong> For example, the Virgin Mary is often equated with the powerful anitos who must be prayed to for protection against illnesses.</li>
+    </ul>
+  
+    <h3>Ritual Practices</h3>
+    <ul class="justify-text">
+      <li><strong>Santiguar (Healing Ritual):</strong> This ritual was performed by a Balyan (shaman) if a person in the community was sick. They might use melted wax poured into water or alum (tawas) to identify the form of the spirit that the sick person had offended.</li>
+      <li><strong>Pagtabat/Atang (Offering):</strong> These involve the offering of food (often unsalted chicken or pork) and gin, along with betel nut, on a makeshift altar to seek permission from the spirits before undertaking major activities, such as cutting down a forest clearing (kaingin) or constructing houses.</li>
+      <li><strong>Pasalamat (Harvest Thanksgiving):</strong> After a successful harvest of corn or abaca, a portion of the harvested crop is set aside or "returned" to nature as a way to give thanks for the fertility it provided for the next harvest.</li>
+    </ul>
+  
+    <h3>Doctrines</h3>
+    <ul class="justify-text">
+      <li><strong>Doctrine of Reciprocity:</strong> You must never take without giving back. For every bit you take from the hive, you must leave some for the bees and the spirits.</li>
+      <li><strong>Doctrine of the "Taboo":</strong> There are certain areas of the environment which must never be entered (mariit). Entering the holy grove or making fun of the peculiar-looking creature is somehow unacceptable from the point of view of the doctrine of the "taboo" and will lead to punishment, which will be expressed in being sick or lost in the forest.</li>
+    </ul>
+  
+    <h3>Philosophical Doctrines</h3>
+    <p class="block-style2">Their philosophy is based on Ecocentrism or Nature-centeredness rather than Anthropocentrism or Human.</p>
+    <ul class="justify-text">
+      <li><strong>Interconnectedness:</strong> They "philosophically believe that while humans are not the masters of Earth, rather a part of it equal to the trees and animals." Anything that happens to the forest happens to them.</li>
+      <li><strong>The Non-Linearity of Time:</strong> Ancestors, for example, are never "gone"; they are always there, within the surroundings. Hence, the past always lives in the present, influencing their every move.</li>
+    </ul>
+  
+    <h3>Religious Behavior</h3>
+    <ul class="justify-text">
+      <li><strong>"Tabi-tabi Po":</strong> A Tabangnon will automatically utter "Tabi po, maki-agi" or "Excuse me, please let me pass" if he is passing in front of an anthill or a giant tree, because it is a sign of respect for the invisible presence there.</li>
+      <li><strong>Wearing of Amulets (Anting-Anting):</strong> Many people wear separate items—a tooth of a crocodile, a piece of black coral, or a container of oil mixed with herbs—that dangle from their neck or waist. These are not adornments, only protective charms against bad spirits or envy (usog).</li>
+    </ul>
+  
+    <h3>Consequential</h3>
+    <ul class="justify-text">
+      <li><strong>Environmental Preservation:</strong> It serves as a means of conservation because, for them, spirits dwell in nature. They are afraid to cut down sacred trees or pollute water sources, thus serving to conserve the watershed of Mt. Isarog long before government laws did.</li>
+      <li><strong>Social Control:</strong> The fear of supernatural punishment (gaba or karma) maintains social order. Theft and violence are rare within the tribe because they believe that even if no human sees the crime, the Anitos witness it and will visit sickness upon the offender's family.</li>
+    </ul>
+
+    <div class="reflection">
+        <strong>Reflection:</strong>
+        <p>Their strength lies in their ability to integrate their Catholic beliefs with those of the forest spirits. This is an incredibly valuable lesson for “Eco-Spirituality.” These people recognize the holiness in the environment; their attitude towards the environment is precisely what our industrializing planet must rediscover.</p>
+    </div>
+</section>
+
+<section id="issues">
+    <h2>⚠️ Contemporary Issues</h2>
+    
+    <h3>The Struggle for Land Tenure (CADT Delays)</h3>
+    <p class="combined-indent">The most basic problem that the Agta Tabangnon faces is, indeed, its precarious land ownership status. Although the Indigenous Peoples Rights Act promises ownership of their ancestral domains, the processing of their Certificate of Ancestral Domain Title has been characterized by gross bureaucratic delays to this day. Without this official ownership, they are literally entitled to be called merely 'squatters' on a land that they have long inhabited by their ancestors through several centuries, thereby putting them at the danger of being ejected by private land developers from the foothills of Mt. Isarog, which have started developing into resorts, poultry, and housing subdivisions.</p>
+  
+    <h3>Conflict Between Livelihood and Environmental Laws</h3>
+    <p class="combined-indent">The Tabangnon are finding themselves in the midst of a legal battle between their traditional means of living and the new environmental laws. Since their ancestral domain, Mt. Isarog, is a government-protected Area under the NIPAS Act, the Tabangnon people are made to feel that they are practicing or doing things against the law, as many of their activities in the community are now deemed illegal. "Poaching" or "illegal logging," for example, occurs when they hunt wild boars or rattan, or when they conduct kaingin (swidden) farming in the forest.</p>
+  
+    <h3>Social Discrimination and Educational Barriers</h3>
+    <p class="combined-indent">Although it can be said that opportunities for education have been provided for them and that they have been given equal rights to education as other people, still, the reality they are facing in school is a challenge for any kind of progress. Children of Tabangnon are constantly bullied and are discriminated against by students from lower places, and they are teased for their physical features and mountain accent. To avoid this embarrassment every day, many Agta youth end up dropping out of school before they reach high school.</p>
+  
+    <h3>Economic Exploitation and Debt Bondage</h3>
+    <p class="combined-indent">The community continues to be lodged at the bottom of the economic structure through an unfair system of trade and debt. Since they do not have direct access to the market in town nor the capital to haul their goods, their prices are dictated by the middlemen (compradors) who handle their produce. This has led to a situation of "debt bondage," whereby traders extend loans in cash or rice during the off-season in return for the harvest of their abaca or copra at greatly reduced prices, making it impossible for them to save themselves out of poverty.</p>
+
+    <div class="reflection">
+        <strong>Reflection:</strong>
+        <p>The present situation of the Tabangnon is a moral condemnation of our justice system. The struggle of the Tabangnon for land titles and elementary education underscores the fact that progress remains very unequal. It prompts us to realize that for the underdog, the very right to exist and preserve their identity continues to be a daily uphill struggle.</p>
+    </div>
+</section>
+
+<section id="references">
+    <h2>📚 References</h2>
+    <ul>
+      <li>Bicol Consortium for Agriculture, Aquatic and Natural Resources Research and Development. (n.d.). <em>Abaca Industry Profile of the Bicol Region</em>. BCAARRD.</li>
+      <li>Cruz, M. J. S. (2022). Lived Experiences of Tribung Agta Tabangnon Learners in Polangui, Albay: A Phenomenological Study. <em>International Journal of Advanced Multidisciplinary Studies</em>, 1(4).</li>
+      <li>Department of Environment and Natural Resources. (2002). <em>Mt. Isarog Natural Park (MINP) General Management Plan</em>. DENR Region 5.</li>
+      <li>Eder, J. F. (1987). <em>On the Road to Tribal Extinction: Depopulation, Deculturation, and Adaptive Well-being Among the Batak of the Philippines</em>. University of California Press. (Used for comparative analysis of "marginal economies" and debt systems).</li>
+      <li>Gerona, D. M. (2010). <em>The Agta of Mt. Isarog: Based on the Manuscript of Father Francisco Mallari</em>, S.J. Ateneo de Naga University Press.</li>
+      <li>Headland, T. N. (1987). The Wild Yam Question: How well could independent hunter-gatherers live in a tropical rain forest ecosystem? <em>Human Ecology</em>, 15(4), 463-491. (General context on Philippine Negrito subsistence).</li>
+      <li>Jocano, F. L. (2000). <em>Filipino Prehistory: Rediscovering Precolonial Heritage</em>. Punlad Research House.</li>
+      <li>Lynch, F. (1948). Some Notes on the Aeta of Mt. Isarog. <em>Primitive Man</em>, 21(3/4), 65-71.</li>
+      <li>Mallari, F. (1999). <em>Vignettes of Bicol History</em>. New Day Publishers. (Contains essays on the "Remontados" and Spanish-era interactions).</li>
+      <li>National Commission on Indigenous Peoples. (2018). <em>Revised National Guidelines for the Mandatory Representation of Indigenous Peoples in Local Legislative Councils</em>. NCIP Administrative Order No. 3.</li>
+      <li>Pesimo, A. G., Onsay, E. A., & Nolasco, K. R. (2022). Poverty Profile and Health Dynamics of Indigenous People (Agta Isarog & Agta Tabangnon). <em>International Journal of Multidisciplinary Research and Analysis</em>, 2(1).</li>
+      <li>Republic of the Philippines. (1992). <em>Republic Act No. 7586: National Integrated Protected Areas System Act of 1992</em>. Congress of the Philippines.</li>
+      <li>Republic of the Philippines. (1997). <em>Republic Act No. 8371: The Indigenous Peoples’ Rights Act of 1997</em>. Congress of the Philippines.</li>
+    </ul>
+</section>
+
+<footer>
+    <p>Digital Portfolio | Philippine Indigenous Community</p>
+    <small>Preserving Heritage Through Education</small>
+</footer>
+
+</body>
+</html>
